@@ -1,7 +1,15 @@
-;(function(){
-	var pos = ['x','y','z'],
-		ang = ['alpha','beta','gamma'];
+window.addEventListener('deviceorientation',function(e){
+	var alpha = Math.round(e.alpha); //compass direction
+	var beta = Math.round(e.beta); //tilt front back
+	var gamma = Math.round(e.gamma); //tilt left right
+	document.getElementById("test").innerHTML = "- tilt left/right: " + gamma + "<br />- tilt front/back: " + beta + "<br />- compass direction: " + alpha;
+},false);
 
+/*
+var pos = ['x','y','z'],
+	ang = ['alpha','beta','gamma'];
+
+;(function(){
 	var list = d3.select('ul');
 	gyro.startTracking(function(o) {
 	  //o = {x: 12,y: 45,z: 3,alpha: .2,beta: .6,gamma: .45};
@@ -27,6 +35,9 @@
 
 	  })        
   })();
+
+*/
+
 
 pannellum.viewer('panorama', {   
 	"default": {
